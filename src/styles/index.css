@@ -1,3 +1,14 @@
 /* 
     General Styles
 */
+.cards {
+    list-style: none !important;
+}
+.card,li {
+    flex-shrink: 0;
+    margin-right: 1rem;
+}
+
+.card:last-of-type {
+    margin-right: 0;
+}
