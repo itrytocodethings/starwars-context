@@ -6,7 +6,7 @@ export const Navbar = () => {
 		<nav className="navbar navbar-light bg-light mb-3">
 			<div className="container">
 			<Link to="/">
-				<span className="navbar-brand mb-0 h1">Star Wars</span>
+				<span className="navbar-brand mb-0 h1"><i class="fas fa-jedi fa-3x"></i></span>
 			</Link>
 			</div>
 			{/* <div className="ml-auto">

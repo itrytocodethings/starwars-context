@@ -21,7 +21,7 @@ export const Home = () => {
 			return response.json();
 		})
 		.then(response => {
-			console.log(response.results);
+			// console.log(response.results);
 			setCharacters(response.results)
 
 		})
@@ -35,29 +35,28 @@ export const Home = () => {
 			return response.json();
 		})
 		.then(response => {
-			console.log(response.results);
+			// console.log(response.results);
 			setPlanets(response.results)
 		})
 	}
 	return (
 		<div className="container">
 		  <div className="characters mt-5">
-			<h2 className="text-danger">Chars</h2>
-			{characters.length}
+			<h2 className="text-danger">Characters</h2>
 			<ul className="cards characters-cards d-flex flex-nowrap p-0">
+				
 				{/* <li><Card name="Wayne"/></li> */}
 				{characters.map((character, i) => {
-					return <li key={i}><Card name={character.name} eyeColor={character.eye_color} hairColor={character.hair_color}/></li>
+					return <li key={i}><Card type="character" character={character} name={character.name} eyeColor={character.eye_color} hairColor={character.hair_color}/></li>
 				})}
 			</ul>
 		  </div>
 		  <div className="characters mt-5">
 			<h2 className="text-danger">Planets</h2>
-			{characters.length}
 			<ul className="cards characters-cards d-flex flex-nowrap p-0">
 				{/* <li><Card name="Wayne"/></li> */}
 				{planets.map((planet, i) => {
-					return <li key={i}><Card name={planet.name}/></li>
+					return <li key={i}><Card type="planet" planet={planet} name={planet.name} /></li>
 				})}
 			</ul>
 		  </div>
