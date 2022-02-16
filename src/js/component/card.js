@@ -11,7 +11,7 @@ export const Card = (props) => {
     <img className="card-img-top" src={imgURL} alt="Card image cap" />
     <div className="card-body">
         <h5 className="card-title">{currentEntity.name}</h5>
-        {props.type == 'character' ? 
+        {props.type == "character" ? 
         (        
             <div>
                 <p>Hair Color: {currentEntity.hair_color}</p>

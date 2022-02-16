@@ -47,7 +47,7 @@ export const Home = () => {
 				
 				{/* <li><Card name="Wayne"/></li> */}
 				{characters.map((character, i) => {
-					return <li key={i}><Card type="character" character={character} name={character.name} eyeColor={character.eye_color} hairColor={character.hair_color}/></li>
+					return <li key={i}><Card type="character" character={character}/></li>
 				})}
 			</ul>
 		  </div>
@@ -56,7 +56,7 @@ export const Home = () => {
 			<ul className="cards characters-cards d-flex flex-nowrap p-0">
 				{/* <li><Card name="Wayne"/></li> */}
 				{planets.map((planet, i) => {
-					return <li key={i}><Card type="planet" planet={planet} name={planet.name} /></li>
+					return <li key={i}><Card type="planet" planet={planet} /></li>
 				})}
 			</ul>
 		  </div>
