@@ -25,6 +25,9 @@ export const Home = () => {
 			setCharacters(response.results)
 
 		})
+		.catch(e => {
+			console.log(e);
+		})
 	}
 	const getPlanets = () => {
 		fetch('https://swapi.dev/api/planets')
@@ -38,6 +41,9 @@ export const Home = () => {
 			// console.log(response.results);
 			setPlanets(response.results)
 		})
+		.catch(e => {
+			console.log(e);
+		})
 	}
 	return (
 		<div className="container">
@@ -47,7 +53,7 @@ export const Home = () => {
 				
 				{/* <li><Card name="Wayne"/></li> */}
 				{characters.map((character, i) => {
-					return <li key={i}><Card type="character" character={character}/></li>
+					return <li id={i} key={i}><Card type="character" character={character}/></li>
 				})}
 			</ul>
 		  </div>
@@ -56,7 +62,7 @@ export const Home = () => {
 			<ul className="cards characters-cards d-flex flex-nowrap p-0">
 				{/* <li><Card name="Wayne"/></li> */}
 				{planets.map((planet, i) => {
-					return <li key={i}><Card type="planet" planet={planet} /></li>
+					return <li id={i} key={i}><Card type="planet" planet={planet} /></li>
 				})}
 			</ul>
 		  </div>

@@ -3,6 +3,7 @@
 */
 .cards {
     list-style: none !important;
+    overflow-x: auto !important;
 }
 .card,li {
     flex-shrink: 0;
