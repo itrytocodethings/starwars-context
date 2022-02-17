@@ -4,7 +4,9 @@ export const Details = (props) => {
   let current = props.location.state.character ? props.location.state.character : props.location.state.planet;
   let currentInfo = [];
   for (let key in current) {
-    currentInfo.push(`${key}: ${current[key]}`);
+    let formatKey = key.split('');
+    formatKey[0] = formatKey[0].toUpperCase();
+    currentInfo.push([`${formatKey.join('')}`, `${current[key]}`]);
   }
   console.log(currentInfo);
   return (
@@ -20,8 +22,11 @@ export const Details = (props) => {
               <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
               <ul className="d-flex flex-column">
                 {currentInfo.map((entity) => {
-                  return <li>{entity}</li>
+                  return <li><strong>{`${entity[0]}:`} </strong>{`${entity[1]}`}</li>
                 })}
+                {/* {currentInfo.map((entity) => {
+                  return <li>{entity}</li>
+                })} */}
               </ul>
             </div>
           </div>
