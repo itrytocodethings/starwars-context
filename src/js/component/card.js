@@ -26,7 +26,7 @@ export const Card = ({ type, character, planet }) => {
                 <Link
                     to={{
                         pathname: `details/${character ? character.name : planet.name}`,
-                        state: character ? {character: character,imgURL: imgURL} : {planet: planet, imgURL: imgURL},
+                        state: character ? { character: character, imgURL: imgURL } : { planet: planet, imgURL: imgURL },
                     }}
                 ><button className="btn btn-primary">Learn More</button></Link>
             </div>
