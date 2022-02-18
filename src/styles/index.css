@@ -55,7 +55,7 @@ ul.cards::-webkit-scrollbar {
   ul.cards::-webkit-scrollbar-thumb {
     background: #C84B31; 
     border-radius: 10px;
-    width: 5px;
+    width: 3px;
   }
   
   /* Handle on hover */

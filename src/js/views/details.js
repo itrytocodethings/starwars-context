@@ -19,7 +19,7 @@ export const Details = (props) => {
           <div className="col-md-8">
             <div className="card-body">
               <h5 className="card-title">{current.name}</h5>
-              <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              {/* <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> */}
               <ul className="d-flex flex-column">
                 {currentInfo.map((entity) => {
                   return <li><strong>{`${entity[0]}:`} </strong>{`${entity[1]}`}</li>
