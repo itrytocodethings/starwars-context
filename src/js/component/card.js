@@ -7,8 +7,8 @@ export const Card = ({ type, character, planet }) => {
         <div className="card bg-dark" style={{ width: '25rem' }}>
             <img className="card-img-top" src={imgURL} alt="Card image cap" />
             <div className="card-body">
-                <h5 className="card-title">{type == 'character' ? character.name : planet.name}</h5>
-                {type == "character" ?
+                <h5 className="card-title">{character ? character.name : planet.name}</h5>
+                {character ?
                     (
                         <div>
                             <p>Hair Color: {character.hair_color}</p>
