@@ -23,8 +23,8 @@ li.home {
     margin-right: 1rem !important;
 }
 
-.card:last-of-type {
-    margin-right: 0;
+li.home:last-of-type {
+    margin-right: 0 !important;
 }
 
 .btn-custom {
@@ -50,8 +50,6 @@ ul.cards::-webkit-scrollbar {
     border-radius: 10px;
   }
   
-  /* Track */
-
    
   /* Handle */
   ul.cards::-webkit-scrollbar-thumb {
