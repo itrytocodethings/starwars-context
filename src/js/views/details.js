@@ -11,7 +11,7 @@ export const Details = (props) => {
   console.log(currentInfo);
   return (
     <div className="container">
-      <div className="card mb-3 mx-auto">
+      <div className="card mb-3 mx-auto bg-dark">
         <div className="row g-0">
           <div className="col-md-4">
             <img src={props.location.state.imgURL} className="fit" alt="..." />
@@ -24,7 +24,7 @@ export const Details = (props) => {
                 {currentInfo.map((entity) => {
                   return <li><strong>{`${entity[0]}:`} </strong>{`${entity[1]}`}</li>
                 })}
-                {/* {currentInfo.map((entity) => {
+                {/* {currentInfo.map((entity) => { 
                   return <li>{entity}</li>
                 })} */}
               </ul>

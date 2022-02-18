@@ -48,7 +48,7 @@ export const Home = () => {
 	return (
 		<div className="container">
 		  <div className="characters mt-5">
-			<h2 className="text-danger">Characters</h2>
+			<h2 className="">Characters</h2>
 			<ul className="cards characters-cards d-flex flex-nowrap p-0">
 				
 				{/* <li><Card name="Wayne"/></li> */}
@@ -58,7 +58,7 @@ export const Home = () => {
 			</ul>
 		  </div>
 		  <div className="characters mt-5">
-			<h2 className="text-danger">Planets</h2>
+			<h2 className="">Planets</h2>
 			<ul className="cards characters-cards d-flex flex-nowrap p-0">
 				{/* <li><Card name="Wayne"/></li> */}
 				{planets.map((planet, i) => {

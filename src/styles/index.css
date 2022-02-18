@@ -1,6 +1,12 @@
 /* 
     General Styles
 */
+body {
+    color: #2D4263;
+    background: #191919;
+    color: #c84B31;
+}
+
 .cards {
     list-style: none !important;
     overflow-x: auto !important;
@@ -8,6 +14,9 @@
 .card,li {
     list-style: none !important;
     
+}
+.card {
+    color: #ECDBBA;
 }
 li.home {
     flex-shrink: 0 !important;
@@ -18,8 +27,40 @@ li.home {
     margin-right: 0;
 }
 
+.btn-custom {
+    background: #8b3422;
+    color: #ECDBBA;
+}
+
 img.fit {
     object-fit: cover !important;
     width: 100%;
     height: 100%;
 }
+
+ul.cards::-webkit-scrollbar {
+    background: #191919;
+}
+/* width */
+ul.cards::-webkit-scrollbar {
+    width: 100px;
+  }
+  ul.cards::-webkit-scrollbar-thumb {
+    background: #C84B31; 
+    border-radius: 10px;
+  }
+  
+  /* Track */
+
+   
+  /* Handle */
+  ul.cards::-webkit-scrollbar-thumb {
+    background: #C84B31; 
+    border-radius: 10px;
+    width: 5px;
+  }
+  
+  /* Handle on hover */
+  ul.cards::-webkit-scrollbar-thumb:hover {
+    background: #8b3422; 
+  }
