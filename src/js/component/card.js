@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export const Card = ({ cardData }) => {
     return (
-        <div className="container">
+        <div>
             {cardData ? (<div className="card bg-dark mb-3" style={{ width: '25rem' }}>
                 <img className="card-img-top" src={cardData.imgURL} alt="Card image cap" />
                 <div className="card-body">
