@@ -9,12 +9,12 @@ export const Home = () => {
 	const [planets, setPlanets] = useState([]);
 
 	useEffect(() => {
-		getCharacters();
-		getPlanets();
+		getEntity('https://swapi.dev/api/people', setCharacters, 'https://www.sideshow.com/storage/product-images/2172/r2-d2-deluxe_star-wars_feature.jpg')
+		getEntity('https://swapi.dev/api/planets', setPlanets, 'https://www.sideshow.com/storage/product-images/2172/r2-d2-deluxe_star-wars_feature.jpg')
 	}, [])
 
-	const getCharacters = () => {
-		fetch('https://swapi.dev/api/people')
+	const getEntity = (url, setter, img) => {
+		fetch(url)
 		.then(response => {
 			if (!response.ok) {
 				throw new Error('help');
@@ -22,31 +22,15 @@ export const Home = () => {
 			return response.json();
 		})
 		.then(response => {
-			response.results.imgURL = 'https://www.sideshow.com/storage/product-images/2172/r2-d2-deluxe_star-wars_feature.jpg'
-			console.log(response.results)
-			setCharacters(response.results)
+			response.results.forEach(entity => entity.imgURL = img)
+			setter(response.results)
 
 		})
 		.catch(e => {
 			console.log(e);
 		})
 	}
-	const getPlanets = () => {
-		fetch('https://swapi.dev/api/planets')
-		.then(response => {
-			if (!response.ok) {
-				throw new Error('help');
-			}
-			return response.json();
-		})
-		.then(response => {
-			// console.log(response.results);
-			setPlanets(response.results)
-		})
-		.catch(e => {
-			console.log(e);
-		})
-	}
+
 	return (
 		<div className="container">
 		  <div className="characters mt-5">
