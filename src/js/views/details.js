@@ -1,7 +1,10 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 
 export const Details = (props) => {
-  let current = props.location.state.character ? props.location.state.character : props.location.state.planet;
+  //alternativley could have used props.location.state etc
+  const location = useLocation().state;
+  let current = location.character ? location.character : location.planet;
   let currentInfo = [];
   for (let key in current) {
     let formatKey = key.split('');
@@ -14,7 +17,7 @@ export const Details = (props) => {
       <div className="card mb-3 mx-auto bg-dark">
         <div className="row g-0">
           <div className="col-md-4">
-            <img src={props.location.state.imgURL} className="fit" alt="..." />
+            <img src={location.imgURL} className="fit" alt="..." />
           </div>
           <div className="col-md-8">
             <div className="card-body">
