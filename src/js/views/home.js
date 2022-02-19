@@ -1,3 +1,4 @@
+import { array } from "prop-types";
 import React, {useState, useEffect} from "react";
 import rigoImage from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
@@ -21,7 +22,8 @@ export const Home = () => {
 			return response.json();
 		})
 		.then(response => {
-			// console.log(response.results);
+			response.results.imgURL = 'https://www.sideshow.com/storage/product-images/2172/r2-d2-deluxe_star-wars_feature.jpg'
+			console.log(response.results)
 			setCharacters(response.results)
 
 		})
@@ -53,7 +55,17 @@ export const Home = () => {
 				
 				{/* <li><Card name="Wayne"/></li> */}
 				{characters.map((character, i) => {
-					return <li id={i} key={i} className="home"><Card character={character}/></li>
+					return <li id={i} key={i} className="home"><Card cardData={{
+						name: character.name,
+						imgURL: 'https://www.sideshow.com/storage/product-images/2172/r2-d2-deluxe_star-wars_feature.jpg',
+						prop1: `Hair Color`,
+						prop2: `Eye Color`,
+						prop3: `Gender`,
+						value1: character.hair_color,
+						value2: character.eye_color,
+						value3: character.gender,
+						entity: character
+					}}/></li>
 				})}
 			</ul>
 		  </div>
@@ -62,7 +74,17 @@ export const Home = () => {
 			<ul className="cards characters-cards d-flex flex-nowrap p-0">
 				{/* <li><Card name="Wayne"/></li> */}
 				{planets.map((planet, i) => {
-					return <li id={i} key={i} className="home"><Card planet={planet} /></li>
+					return <li id={i} key={i} className="home"><Card cardData={{
+						name: planet.name,
+						imgURL: 'https://wallpaperaccess.com/full/1251069.jpg',
+						prop1: `Population`,
+						prop2: `Terrain`,
+						prop3: `Climate`,
+						value1: planet.population,
+						value2: planet.terrain,
+						value3: planet.climate,
+						entity: planet
+					}}/></li>
 				})}
 			</ul>
 		  </div>
