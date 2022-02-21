@@ -41,7 +41,7 @@ export const Home = () => {
 				{characters.map((character, i) => {
 					return <li id={i} key={i} className="home"><Card cardData={{
 						name: character.name,
-						imgURL: 'https://www.sideshow.com/storage/product-images/2172/r2-d2-deluxe_star-wars_feature.jpg',
+						imgURL: character.imgURL,
 						prop1: `Hair Color`,
 						prop2: `Eye Color`,
 						prop3: `Gender`,
@@ -60,7 +60,7 @@ export const Home = () => {
 				{planets.map((planet, i) => {
 					return <li id={i} key={i} className="home"><Card cardData={{
 						name: planet.name,
-						imgURL: 'https://wallpaperaccess.com/full/1251069.jpg',
+						imgURL: planet.imgURL,
 						prop1: `Population`,
 						prop2: `Terrain`,
 						prop3: `Climate`,
