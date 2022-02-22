@@ -1,7 +1,9 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { Link } from 'react-router-dom';
+import { Context } from '../store/appContext';
 
 export const Card = ({ cardData }) => {
+    const { store, actions } = useContext(Context);
     return (
         <div>
             {cardData ? (<div className="card bg-dark mb-3" style={{ width: '25rem' }}>
@@ -13,12 +15,15 @@ export const Card = ({ cardData }) => {
                         <li>{cardData.prop2} {cardData.value2}</li>
                         <li>{cardData.prop3} {cardData.value3}</li>
                     </ul>
-                    <Link
-                        to={{
-                            pathname: `details/${cardData.name}`,
-                            state: cardData,
-                        }}
-                    ><button className="btn btn-custom">Learn More</button></Link>
+                    <div className="d-flex justify-content-between">
+                        <Link
+                            to={{
+                                pathname: `details/${cardData.name}`,
+                                state: cardData,
+                            }}
+                        ><button className="btn btn-custom">Learn More</button></Link>
+                        <button className="btn btn-custom" onClick={() => actions.addFavorite(cardData)}><i class="fas fa-heart"></i></button>
+                    </div>
                 </div>
             </div>) : <h5>loading...</h5>}
         </div>

@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, } from "react";
 import getState from "./flux.js";
+
 
 // Don't change, here is where we initialize our context, by default it's just going to be null.
 export const Context = React.createContext(null);
@@ -22,6 +23,8 @@ const injectContext = PassedComponent => {
 		);
 
 		useEffect(() => {
+			state.actions.getEntity('https://swapi.dev/api/people', 'https://www.sideshow.com/storage/product-images/2172/r2-d2-deluxe_star-wars_feature.jpg', 'characters')
+			state.actions.getEntity('https://swapi.dev/api/planets', 'https://wallpaperaccess.com/full/1251069.jpg', 'planets')
 			/**
 			 * EDIT THIS!
 			 * This function is the equivalent to "window.onLoad", it only runs once on the entire application lifetime

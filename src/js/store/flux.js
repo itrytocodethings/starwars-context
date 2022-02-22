@@ -1,6 +1,8 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
+			favorites: [
+			],
 			demo: [
 				{
 					title: "FIRST",
@@ -37,6 +39,31 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				//reset the global store
 				setStore({ demo: demo });
+			},
+			getEntity: (url, img, storeProperty) => {
+				const store = getStore();
+					fetch(url)
+					.then(response => {
+						if (!response.ok) {
+							throw new Error('help');
+						}
+						return response.json();
+					})
+					.then(response => {
+						response.results.forEach(entity => entity.imgURL = img)
+						setStore({[storeProperty]: response.results});
+			
+					})
+					.catch(e => {
+						console.log(e);
+					})
+			},
+			addFavorite: (cardData) => {
+				const store = getStore();
+				if (!store.favorites.includes(cardData.name)) {
+					const favorites = [...store.favorites, cardData.name];
+					setStore({favorites: favorites});
+				}
 			}
 		}
 	};

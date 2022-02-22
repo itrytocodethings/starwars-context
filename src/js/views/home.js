@@ -1,44 +1,22 @@
 import { array } from "prop-types";
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useContext} from "react";
 import rigoImage from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
 import { Card } from "../component/card";
+import { Context } from "../store/appContext";
 
 export const Home = () => {
-	const [characters, setCharacters] = useState([]);
-	const [planets, setPlanets] = useState([]);
-
-	useEffect(() => {
-		getEntity('https://swapi.dev/api/people', setCharacters, 'https://www.sideshow.com/storage/product-images/2172/r2-d2-deluxe_star-wars_feature.jpg')
-		getEntity('https://swapi.dev/api/planets', setPlanets, 'https://www.sideshow.com/storage/product-images/2172/r2-d2-deluxe_star-wars_feature.jpg')
-	}, [])
-
-	const getEntity = (url, setter, img) => {
-		fetch(url)
-		.then(response => {
-			if (!response.ok) {
-				throw new Error('help');
-			}
-			return response.json();
-		})
-		.then(response => {
-			response.results.forEach(entity => entity.imgURL = img)
-			setter(response.results)
-
-		})
-		.catch(e => {
-			console.log(e);
-		})
-	}
+	const { store, actions } = useContext(Context);
 
 	return (
-		<div className="container">
+		<div>
+			{(store.characters && store.planets) ? (<div className="container">
 		  <div className="characters mt-5">
 			<h2 className="">Characters</h2>
 			<ul className="cards characters-cards d-flex flex-nowrap p-0">
 				
 				{/* <li><Card name="Wayne"/></li> */}
-				{characters.map((character, i) => {
+				{store.characters.map((character, i) => {
 					return <li id={i} key={i} className="home"><Card cardData={{
 						name: character.name,
 						imgURL: character.imgURL,
@@ -57,7 +35,7 @@ export const Home = () => {
 			<h2 className="">Planets</h2>
 			<ul className="cards characters-cards d-flex flex-nowrap p-0">
 				{/* <li><Card name="Wayne"/></li> */}
-				{planets.map((planet, i) => {
+				{store.planets.map((planet, i) => {
 					return <li id={i} key={i} className="home"><Card cardData={{
 						name: planet.name,
 						imgURL: planet.imgURL,
@@ -72,6 +50,7 @@ export const Home = () => {
 				})}
 			</ul>
 		  </div>
+		</div>): <h1>loading...</h1>}
 		</div>
 	  );
 }
