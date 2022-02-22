@@ -64,6 +64,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 					const favorites = [...store.favorites, cardData.name];
 					setStore({favorites: favorites});
 				}
+			},
+			removeFavorite: (index) => {
+				const favorites = getStore().favorites;
+				setStore({favorites: favorites.filter((fav, i)=> i != index)});
 			}
 		}
 	};
