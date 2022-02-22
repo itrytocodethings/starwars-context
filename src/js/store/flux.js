@@ -42,7 +42,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			getEntity: (url, img, storeProperty) => {
 				const store = getStore();
-					fetch(url)
+				fetch(url)
 					.then(response => {
 						if (!response.ok) {
 							throw new Error('help');
@@ -51,8 +51,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.then(response => {
 						response.results.forEach(entity => entity.imgURL = img)
-						setStore({[storeProperty]: response.results});
-			
+						setStore({ [storeProperty]: response.results });
+
 					})
 					.catch(e => {
 						console.log(e);
@@ -62,12 +62,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const store = getStore();
 				if (!store.favorites.includes(cardData.name)) {
 					const favorites = [...store.favorites, cardData.name];
-					setStore({favorites: favorites});
+					setStore({ favorites: favorites });
 				}
 			},
-			removeFavorite: (index) => {
-				const favorites = getStore().favorites;
-				setStore({favorites: favorites.filter((fav, i)=> i != index)});
+			removeFavorite: (e, index) => {
+				if (e.target.tagName == "I") {
+					const favorites = getStore().favorites;
+					setStore({ favorites: favorites.filter((fav, i) => i != index) });
+				}
 			}
 		}
 	};
